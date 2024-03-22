@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "Art Nails",
+    "name": "Art Nail",
     "slug": "CompositionBlockBreaker",
-    "version": "1.0.1",
+    "version": "1.0.1 ",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",

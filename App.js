@@ -19,11 +19,21 @@ function shuffle(array) {
   return array;
 }
 
+var waitMessages = [
+  "Let card sink in...",
+  "Let the idea percolate...",
+  "think about it...",
+  "reread card...",
+  "consider the card again...",
+  "how else might it apply..."
+]
+shuffle(waitMessages)
+
 var suggestions = [
   ["I myself do nothing. The Holy Spirit accomplishes all through me.","William Blake"],
   ["The primary imagination I hold to be the Living Power.","Samuel Taylor Coleridge"],
-  ["Do not call it God unless that is comfortable for you.","Julia Cameron"],
   ["I don’t believe; I know","Carl Jung"],
+  ["Tiling","Brian Ellis"],
   ["Creativity is the natural order of life. Life is energy: pure creative energy.","Julia Cameron"],
   ["Try it and see what happens","Parents, rarely"],
   ["I am allowed to nurture my artist.","Julia Cameron"],
@@ -106,20 +116,20 @@ var suggestions = [
   ["Balance the consistency principle with the inconsistency principle","Brian Eno"],
   ["Be dirty","Brian Eno"],
   ["Breathe more deeply","Brian Eno"],
-  ["Bridges -build -burn","Brian Eno"],
+  ["Bridges\n -build\n -burn","Brian Eno"],
   ["Cascades","Brian Eno"],
   ["Change instrument roles","Brian Eno"],
   ["Change nothing and continue with immaculate consistency","Brian Eno"],
-  ["Children's voices -speaking -singing","Brian Eno"],
+  ["Children's voices\n -speaking\n -singing","Brian Eno"],
   ["Cluster analysis","Brian Eno"],
   ["Consider different fading systems","Brian Eno"],
-  ["Consult other sources -promising -unpromising","Brian Eno"],
+  ["Consult other sources\n -promising\n -unpromising","Brian Eno"],
   ["Convert a melodic element into a rhythmic element","Brian Eno"],
   ["Courage!","Brian Eno"],
   ["Cut a vital connection","Brian Eno"],
   ["Decorate, decorate","Brian Eno"],
   ["Define an area as `safe' and use it as an anchor","Brian Eno"],
-  ["Destroy -nothing -the most important thing","Brian Eno"],
+  ["Destroy\n -nothing\n -the most important thing","Brian Eno"],
   ["Discard an axiom","Brian Eno"],
   ["Disconnect from desire","Brian Eno"],
   ["Discover the recipes you are using and abandon them","Brian Eno"],
@@ -151,7 +161,7 @@ var suggestions = [
   ["Imagine the music as a moving chain or caterpillar","Brian Eno"],
   ["Imagine the music as a set of disconnected events","Brian Eno"],
   ["Infinitesimal gradations","Brian Eno"],
-  ["Intentions -credibility of -nobility of -humility of","Brian Eno"],
+  ["Intentions\n -credibility of\n -nobility of\n -humility of","Brian Eno"],
   ["Into the impossible","Brian Eno"],
   ["Is it finished?","Brian Eno"],
   ["Is there something missing?","Brian Eno"],
@@ -163,7 +173,7 @@ var suggestions = [
   ["Look at a very small object, look at its centre","Brian Eno"],
   ["Look at the order in which you do things","Brian Eno"],
   ["Look closely at the most embarrassing details and amplify them","Brian Eno"],
-  ["Lowest common denominator check -single beat -single note -single","Brian Eno"],
+  ["Lowest common denominator check\n -single beat\n -single note\n -single","Brian Eno"],
   ["riff","Brian Eno"],
   ["Make a blank valuable by putting it in an exquisite frame","Brian Eno"],
   ["Make an exhaustive list of everything you might do and do the last","Brian Eno"],
@@ -180,8 +190,7 @@ var suggestions = [
   ["Remove specifics and convert to ambiguities","Brian Eno"],
   ["Repetition is a form of change","Brian Eno"],
   ["Reverse","Brian Eno"],
-  ["Short circuit (example: a man eating peas with the idea that they will","Brian Eno"],
-  ["improve his virility shovels them straight into his lap)","Brian Eno"],
+  ["Shortcircuit: (example: a man eating peas with the idea that they will improve his virility shovels them straight into his lap)","Brian Eno"],
   ["Shut the door and listen from outside","Brian Eno"],
   ["Simple subtraction","Brian Eno"],
   ["Spectrum analysis","Brian Eno"],
@@ -234,7 +243,7 @@ const App = () => {
   const [haveWaited, setHaveWaited] = useState(true);
   const [isOnboarding, setIsOnboarding] = useState(0);
 
-  var onboardingStuff = [["Welcome! Use the following cards to prompt you to think about your artistic practice differently. Quotes of insperation are pulled from musicians, painters, actors, listeners, and more.", "First Card", "Brian Ellis"]]
+  var onboardingStuff = [["Welcome! Use the following cards to prompt you to think about your artistic practice differently.\n\nSuggestions are pulled from musicians, painters, actors, listeners, and more.", "First Card", "Brian Ellis"]]
 
   let textLog = '';
   let nameThing = "";
@@ -249,7 +258,7 @@ const App = () => {
     nameThing = suggestions[timesPressed%suggestions.length][1]
   }
   if(!haveWaited){
-    buttonPrompt = "Let card sink in..."
+    buttonPrompt = waitMessages[timesPressed%waitMessages.length]
   }
   nameThing = "\n - "+nameThing
   
@@ -268,7 +277,7 @@ const App = () => {
       setTimesPressed(current => current + 1);
       setTimeout(() => {
         setHaveWaited(true)
-      }, 20000)
+      }, 25000)
       setHaveWaited(false)
     }}
     style={({pressed}) => [
