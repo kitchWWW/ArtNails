@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "Art Nail",
+    "name": "Art Nails",
     "slug": "CompositionBlockBreaker",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -15,7 +15,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.kitch.CompositionBlockBreaker"
     },
     "android": {
       "adaptiveIcon": {
@@ -25,6 +26,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "bbab55b7-37e2-4d37-aadd-8c40b80de2f7"
+      }
     }
   }
 }
