@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "Art Plunger",
+    "name": "Art Nail",
     "slug": "CompositionBlockBreaker",
-    "version": "1.0.1 ",
+    "version": "1.0.3 ",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -22,7 +22,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.kitch.CompositionBlockBreaker"
     },
     "web": {
       "favicon": "./assets/favicon.png"
